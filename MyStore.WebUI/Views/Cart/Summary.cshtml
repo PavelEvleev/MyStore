@@ -1,0 +1,22 @@
+﻿@model MyStore.Domain.Entities.Cart
+
+<style>
+    .margin{
+        margin-right:15px;
+    }
+    .padding{
+        padding-right:15px;
+    }
+</style>
+
+<div class="navbar-right margin">
+    @Html.ActionLink("Заказать", "Index", "Cart",
+    new { returnUrl = Request.Url.PathAndQuery },
+    new { @class = "btn btn-default navbar-btn" })
+</div>
+
+<div class="navbar-text navbar-right padding">
+    <b>Ваша корзина:</b>
+    @Model.Lines.Sum(x => x.Quantity) игр,
+    @Model.ComputeTotalValue().ToString("# руб")
+</div>

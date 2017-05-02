@@ -37,5 +37,20 @@ namespace MyStore.WebUI.Controllers
             };
             return View(model);
         }
+
+        public FileContentResult GetImage(int productId)
+        {
+            Product game = repository.Products
+                .FirstOrDefault(g => g.ProductId == productId);
+
+            if (game != null)
+            {
+                return File(game.ImageData, game.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

@@ -9,8 +9,10 @@ using MyStore.Domain.Abstract;
 using MyStore.Domain.Concrete;
 using MyStore.Domain.Entities;
 using System.Configuration;
+using MyStore.WebUI.Infastructure.Concrete;
+using MyStore.WebUI.Infastucture.Abstract;
 
-namespace MyStore.WebUI.Infostructure
+namespace MyStore.WebUI.Infastructure
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {
@@ -44,6 +46,8 @@ namespace MyStore.WebUI.Infostructure
 
             kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
                 .WithConstructorArgument("settings", emailSettings);
+
+            kernel.Bind<IAuthProvider>().To<FormAuthProvider>();
         }
     }
 }

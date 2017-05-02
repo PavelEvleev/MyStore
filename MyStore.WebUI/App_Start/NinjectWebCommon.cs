@@ -61,7 +61,7 @@ namespace MyStore.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            System.Web.Mvc.DependencyResolver.SetResolver(new MyStore.WebUI.Infostructure.NinjectDependencyResolver(kernel));
+            System.Web.Mvc.DependencyResolver.SetResolver(new MyStore.WebUI.Infastructure.NinjectDependencyResolver(kernel));
         }        
     }
 }
